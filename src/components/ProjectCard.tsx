@@ -23,7 +23,9 @@ export function ProjectCard({ project }: Props) {
         <img
           className="card-img"
           src={project.screenshot}
-          alt={`${project.title} preview`}
+          alt={`${project.title} – ${project.description}`}
+          width={1280}
+          height={720}
           loading="lazy"
           decoding="async"
           style={{ objectPosition: project.objectPosition ?? 'top center' }}
