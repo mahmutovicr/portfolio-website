@@ -1,0 +1,33 @@
+import type { LegalDocument } from '../types'
+
+export const termsOfUse: LegalDocument = {
+  title: 'Terms of Use',
+  sections: [
+    { heading: 'Acceptance of Terms', body: 'By accessing or using this website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use. If you do not agree to these terms in their entirety, you must discontinue use of this website immediately.' },
+    { heading: 'Intellectual Property', body: 'All content published on this website, including but not limited to text, design, graphics, code, project previews, and visual elements, is the exclusive intellectual property of Rahman Mahmutović and is protected under applicable copyright and intellectual property law. Reproduction, distribution, modification, or commercial use of any content without prior written consent is strictly prohibited.' },
+    { heading: 'Permitted Use', body: 'You are permitted to access and view this website for personal and informational purposes only. Any use of the content for commercial purposes, or any systematic extraction of data from this website, is not permitted without explicit written authorisation from Rahman Mahmutović.' },
+    { heading: 'Contact Form', body: 'The contact form on this website is provided exclusively for legitimate professional enquiries. You agree not to use the contact form to transmit unsolicited commercial communications, spam, or any content that is unlawful, defamatory, or otherwise objectionable.' },
+    { heading: 'Third-Party Links', body: 'This website may contain links to third-party websites for the purpose of showcasing project work. Rahman Mahmutović has no control over the content, privacy practices, or policies of those external sites and accepts no responsibility or liability for them. Visiting any linked third-party website is at your own risk.' },
+    { heading: 'Disclaimer of Warranties', body: 'This website is provided on an "as is" and "as available" basis without any warranties of any kind, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. Rahman Mahmutović does not warrant that the website will be uninterrupted, error-free, or free of viruses or other harmful components.' },
+    { heading: 'Limitation of Liability', body: 'To the fullest extent permitted by applicable law, Rahman Mahmutović shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of or in connection with your access to or use of this website.' },
+    { heading: 'Modifications', body: 'Rahman Mahmutović reserves the right to amend these Terms of Use at any time without prior notice. Continued use of the website following any such amendment constitutes your acceptance of the revised terms.' },
+    { heading: 'Governing Law', body: 'These Terms of Use shall be governed by and construed in accordance with the laws of the Republic of North Macedonia, without regard to its conflict of law provisions.' },
+  ],
+}
+
+export const privacyPolicy: LegalDocument = {
+  title: 'Privacy Policy',
+  sections: [
+    { heading: 'Data Controller', body: 'Rahman Mahmutović is the data controller responsible for personal data collected through this website. This Privacy Policy is provided in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council (the General Data Protection Regulation, "GDPR") and applicable national data protection legislation.' },
+    { heading: 'Data We Collect', body: 'When you submit an enquiry through the contact form on this website, we collect the following personal data: your full name, email address, and the content of your message. Providing your organisation name and a description of the services you are seeking is entirely optional and voluntary.' },
+    { heading: 'Purpose and Legal Basis for Processing', body: 'Your personal data is processed for the sole purpose of responding to your professional enquiry. The legal basis for this processing is Article 6(1)(b) of the GDPR, namely that processing is necessary in order to take steps at your request prior to entering into a contract, and Article 6(1)(f), which permits processing where it is necessary for the purposes of the legitimate interests pursued by the data controller.' },
+    { heading: 'Data Sharing and Disclosure', body: 'Your personal data is not sold, rented, or disclosed to any third party for marketing or commercial purposes. Data is transmitted through Resend, a transactional email service, solely for the purpose of delivering your message. Disclosure to third parties may occur where required by applicable law or by a competent public authority.' },
+    { heading: 'Data Retention', body: 'Personal data submitted through the contact form is retained only for as long as is necessary to respond to your enquiry and to fulfil any related follow-up correspondence. Once no longer required, data is deleted without undue delay.' },
+    { heading: 'Your Rights Under GDPR', body: 'Subject to applicable law, you have the right to request access to the personal data we hold about you, to request rectification of inaccurate data, to request erasure of your data, to object to processing, and to request restriction of processing. To exercise any of these rights, please contact us using the contact form on this website. You also have the right to lodge a complaint with a supervisory authority.' },
+    { heading: 'Automated Decision-Making', body: 'This website does not engage in automated decision-making or profiling within the meaning of Article 22 of the GDPR.' },
+    { heading: 'Cookies and Tracking', body: 'This website does not use tracking cookies, analytics services, or any form of behavioural tracking technology. No personal data is collected through cookies or similar technologies.' },
+    { heading: 'Security Measures', body: 'All data transmitted through the contact form is protected by TLS encryption (HTTPS). Form submissions are additionally protected by Cloudflare Turnstile, a privacy-preserving bot detection service, in order to prevent automated abuse and unauthorised submissions.' },
+    { heading: 'Changes to This Policy', body: 'This Privacy Policy may be updated periodically to reflect changes in applicable law or our data practices. We encourage you to review this page from time to time. Continued use of the website following any update constitutes acceptance of the revised policy.' },
+    { heading: 'Contact', body: 'For any questions relating to this Privacy Policy or to the processing of your personal data, please submit your enquiry using the contact form on this website.' },
+  ],
+}

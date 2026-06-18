@@ -14,3 +14,13 @@ export interface ContactFormData {
   services: string
   message: string
 }
+
+export interface LegalSection {
+  heading: string
+  body: string
+}
+
+export interface LegalDocument {
+  title: string
+  sections: LegalSection[]
+}

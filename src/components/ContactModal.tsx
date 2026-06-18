@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import type { ChangeEvent } from 'react'
 import type { ContactFormData } from '../types'
 import { useHoverDevice } from '../hooks/useHoverDevice'
+import { Turnstile } from '@marsidev/react-turnstile'
 
 type Status = 'idle' | 'loading' | 'success'
 
@@ -30,16 +31,17 @@ const FIELDS: Array<{
 const EMPTY: ContactFormData = { name: '', email: '', organization: '', services: '', message: '' }
 
 export function ContactModal({ isOpen, onClose }: Props) {
-  const [form, setForm]      = useState<ContactFormData>(EMPTY)
-  const [status, setStatus]  = useState<Status>('idle')
-  const [errorMsg, setError] = useState<string | null>(null)
-  const spotlightRef         = useRef<HTMLDivElement>(null)
-  const canHover             = useHoverDevice()
+  const [form, setForm]            = useState<ContactFormData>(EMPTY)
+  const [status, setStatus]        = useState<Status>('idle')
+  const [errorMsg, setError]       = useState<string | null>(null)
+  const [turnstileToken, setToken] = useState<string | null>(null)
+  const spotlightRef               = useRef<HTMLDivElement>(null)
+  const canHover                   = useHoverDevice()
 
   const handleClose = useCallback(() => {
     onClose()
     if (status === 'success') {
-      setTimeout(() => { setForm(EMPTY); setStatus('idle') }, 300)
+      setTimeout(() => { setForm(EMPTY); setStatus('idle'); setToken(null) }, 300)
     } else {
       setStatus('idle')
       setError(null)
@@ -75,12 +77,28 @@ export function ContactModal({ isOpen, onClose }: Props) {
 
   const handleSubmit = async () => {
     setError(null)
-    if (!form.name.trim())                                    { setError('Please enter your name.'); return }
-    if (!form.email.trim() || !EMAIL_REGEX.test(form.email))  { setError('Please enter a valid email address.'); return }
-    if (!form.message.trim())                                 { setError('Please write a message.'); return }
+    if (!form.name.trim())                                   { setError('Please enter your name.'); return }
+    if (!form.email.trim() || !EMAIL_REGEX.test(form.email)) { setError('Please enter a valid email address.'); return }
+    if (!form.message.trim())                                { setError('Please write a message.'); return }
+    if (!turnstileToken)                                     { setError('Please complete the security check.'); return }
     setStatus('loading')
-    await new Promise(r => setTimeout(r, 1200))
-    setStatus('success')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, turnstileToken }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({})) as { error?: string }
+        setError(data.error ?? 'Something went wrong. Please try again.')
+        setStatus('idle')
+        return
+      }
+      setStatus('success')
+    } catch {
+      setError('Something went wrong. Please try again.')
+      setStatus('idle')
+    }
   }
 
   return (
@@ -122,6 +140,14 @@ export function ContactModal({ isOpen, onClose }: Props) {
                 )}
               </div>
             ))}
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem', maxWidth: '100%', overflow: 'hidden' }}>
+              <Turnstile
+                siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                onSuccess={setToken}
+                onExpire={() => setToken(null)}
+                options={{ theme: 'dark' }}
+              />
+            </div>
             {errorMsg && (
               <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: 'clamp(12px,1.3vw,14px)', color: 'rgba(239,68,68,.85)', fontFamily: 'Inter,sans-serif' }}>
                 {errorMsg}

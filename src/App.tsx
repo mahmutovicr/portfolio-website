@@ -4,9 +4,14 @@ import { About } from './components/About'
 import { ProjectGrid } from './components/ProjectGrid'
 import { ContactButton } from './components/ContactButton'
 import { ContactModal } from './components/ContactModal'
+import { LegalModal } from './components/LegalModal'
+import { Footer } from './components/Footer'
+import { termsOfUse, privacyPolicy } from './data/legalContent'
 
 export default function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
+  const [isTermsOpen, setIsTermsOpen] = useState(false)
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false)
 
   return (
     <div id="port">
@@ -28,9 +33,15 @@ export default function App() {
       >
         <About />
         <ProjectGrid />
-        <ContactButton onOpen={() => setIsModalOpen(true)} />
+        <ContactButton onOpenContact={() => setIsContactOpen(true)} />
       </main>
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <Footer
+        onOpenTerms={() => setIsTermsOpen(true)}
+        onOpenPrivacy={() => setIsPrivacyOpen(true)}
+      />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      <LegalModal doc={termsOfUse} isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
+      <LegalModal doc={privacyPolicy} isOpen={isPrivacyOpen} onClose={() => setIsPrivacyOpen(false)} />
     </div>
   )
 }

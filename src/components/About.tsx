@@ -17,7 +17,7 @@ export function About() {
         onClick={handleToggle}
       >
         <span className={`avail-dot ${isLive ? 'green' : 'red'}`} />
-        <span>{AVAILABLE ? 'Available for hire' : 'Not available'}</span>
+        <span>{isLive ? 'Available for hire' : 'Not available'}</span>
       </div>
       <h1>Rahman Mahmutović</h1>
       <div className="role">Designer &amp; Developer</div>

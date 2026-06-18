@@ -79,7 +79,7 @@ html, body {
   align-items: center;
   gap: 7px;
   margin-bottom: clamp(10px, 1.8vh, 18px);
-  font-size: clamp(10px, .85vw, 12px);
+  font-size: clamp(11px, .9vw, 13px);
   font-weight: 500;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -130,7 +130,7 @@ html, body {
 }
 
 #about .tagline {
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(13px, 1.05vw, 15px);
   font-weight: 400;
   color: var(--mu);
   line-height: 1.7;
@@ -224,7 +224,7 @@ html, body {
 }
 
 .card-title {
-  font-size: clamp(11px, 1.05vw, 15px);
+  font-size: clamp(14px, 1.15vw, 16px);
   font-weight: 600;
   color: #fff;
   line-height: 1.2;
@@ -232,7 +232,7 @@ html, body {
 }
 
 .card-desc {
-  font-size: clamp(9px, .82vw, 12px);
+  font-size: clamp(11px, .9vw, 13px);
   font-weight: 400;
   color: var(--mu);
   line-height: 1.4;
@@ -273,7 +273,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: clamp(7px, .75vw, 11px);
+  font-size: clamp(8px, .8vw, 11px);
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -322,7 +322,7 @@ html, body {
 .btn-txt {
   position: relative;
   z-index: 1;
-  font-size: clamp(10px, 2.4vw, 13px);
+  font-size: clamp(11px, 2.4vw, 13px);
   font-weight: 500;
   letter-spacing: .28em;
   text-transform: uppercase;
@@ -464,11 +464,90 @@ html, body {
 
 .success-box { text-align: center; padding: 4rem 0; }
 
+.legal-title {
+  font-size: clamp(18px, 1.8vw, 26px);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -.02em;
+  margin-bottom: clamp(1.2rem, 2.5vh, 2rem);
+  padding-bottom: clamp(.8rem, 1.5vh, 1.2rem);
+  border-bottom: .5px solid rgba(var(--ac3), .1);
+}
+
+.legal-section {
+  padding: clamp(.9rem, 1.8vh, 1.4rem) 0;
+  border-bottom: .5px solid rgba(var(--ac3), .04);
+}
+
+.legal-section:last-of-type { border-bottom: none; }
+
+.legal-section h3 {
+  font-size: clamp(13px, 1.1vw, 16px);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -.01em;
+  margin-bottom: .5rem;
+}
+
+.legal-section p {
+  font-size: clamp(12px, .95vw, 14px);
+  font-weight: 300;
+  color: var(--mu);
+  line-height: 1.7;
+}
+
+#site-footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  padding: clamp(1.2rem, 2.5vh, 2rem) clamp(.6rem, 3vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.5rem, 2vw, 1.2rem);
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: clamp(11px, .9vw, 13px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, .4);
+  letter-spacing: .02em;
+}
+
+.footer-dot {
+  font-size: clamp(13px, 1vw, 15px);
+  color: rgba(255, 255, 255, .4);
+  user-select: none;
+}
+
+.footer-legal-link {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(11px, .9vw, 13px);
+  font-weight: 400;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .4);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color .2s;
+}
+
+.footer-legal-link:hover { color: var(--ac); }
+
 @media (max-width: 480px) {
   #about h1 { white-space: normal; font-size: clamp(18px, 4.5vw, 24px); }
+  #grid { grid-template-columns: 1fr; }
   .modal-inner { width: 92vw; padding: 1.5rem 1.2rem; }
   .field label { font-size: 15px; }
   .field input, .field textarea { font-size: 13px; }
+  .contact-btn { padding: clamp(12px, 1.8vh, 20px) clamp(18px, 5vw, 30px); }
+  .footer-copy,
+  .footer-legal-link { font-size: clamp(10px, 2.4vw, 12px); }
+  .footer-dot { font-size: clamp(12px, 2.6vw, 14px); }
 }
 
 @media (max-width: 768px) {
@@ -476,8 +555,9 @@ html, body {
   #about { margin-bottom: clamp(.3rem, .8vh, .7rem); }
   #projects { padding-top: 0; padding-bottom: 0; }
   #contact-section { margin-top: clamp(.5rem, 1.2vh, 1rem); }
-  .card-title { font-size: clamp(11px, 3.2vw, 14px); }
-  .card-desc { font-size: clamp(9px, 2.4vw, 11px); }
+  .card-title { font-size: clamp(12px, 3.4vw, 14px); }
+  .card-desc { font-size: clamp(10px, 2.5vw, 11px); }
+  .contact-btn { padding: clamp(12px, 1.8vh, 20px) clamp(26px, 6vw, 40px); }
 }
 
 @media (max-width: 900px) {

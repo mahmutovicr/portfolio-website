@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rahman-mahmutovic.vercel.app/sitemap.xml
