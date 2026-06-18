@@ -4,7 +4,7 @@
 
 </div>
 
-![Portfolio Screenshot](portfolio-website.png)
+![Portfolio Screenshot](public/portfolio-website.png)
 
 ## About
 
