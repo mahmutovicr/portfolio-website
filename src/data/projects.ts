@@ -5,7 +5,7 @@ export const PROJECTS: Project[] = [
     title: 'Stock',
     description: 'Full Stack E-commerce Shop',
     tags: ['React', 'Node.js', 'MongoDB'],
-    url: 'https://stockecommerce.onrender.com/',
+    url: 'https://stock-ecommerce.onrender.com/',
     screenshot: '/previews/stock.webp',
   },
   {
