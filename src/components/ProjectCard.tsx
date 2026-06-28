@@ -6,7 +6,7 @@ interface Props {
 
 export function ProjectCard({ project }: Props) {
   return (
-      <a
+      
       className="project-card"
       href={project.url}
       target="_blank"
@@ -14,7 +14,7 @@ export function ProjectCard({ project }: Props) {
     >
       <div className="card-header">
         <div>
-          <div className="card-title">{project.title}</div>
+          <h3 className="card-title">{project.title}</h3>
           <div className="card-desc">{project.description}</div>
         </div>
         <span className="card-arrow">&#8599;</span>
