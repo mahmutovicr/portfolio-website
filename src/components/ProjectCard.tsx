@@ -6,7 +6,7 @@ interface Props {
 
 export function ProjectCard({ project }: Props) {
   return (
-      
+      <a
       className="project-card"
       href={project.url}
       target="_blank"
