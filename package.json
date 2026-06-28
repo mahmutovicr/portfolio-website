@@ -5,14 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite-react-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@marsidev/react-turnstile": "^1.5.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "resend": "^6.12.4"
+    "react-router-dom": "^6.30.4",
+    "resend": "^6.12.4",
+    "vite-react-ssg": "^0.9.1-beta.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.1",
